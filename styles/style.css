@@ -6,6 +6,32 @@ body {
     margin: 40px 0 0 0;
 }
 
+.etch-options {
+    width: 256px;
+    height: 256px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 50%;
+    left: 154px;
+    margin: -128px 0 0 0;
+}
+
+.btn {
+    background-color: #b13b3b;
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 48px;
+    border-radius: 24px;
+}
+
+.btn:hover {
+    box-shadow: 3px 3px 6px #444;
+}
+
 .etch-container {
     background-color: #812323;
     display: grid;
@@ -14,7 +40,11 @@ body {
     height: 800px;
     padding: 16px;
     border-radius: 8px;
-    margin: 0 auto;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -400px 0 0 -400px;
 }
 
 .pixel {
