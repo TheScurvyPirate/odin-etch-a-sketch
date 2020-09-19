@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Etch-A-Sketch</title>
+    <link href="styles/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="etch-container">
+
+    </div>
+</body>
+<script>
+    const etchContainer = document.querySelector('div.etch-container');
+
+    for(let i = 0; i < 16**2; i++) {
+        const pixel = document.createElement('div');
+        pixel.classList.add('pixel');
+
+        etchContainer.appendChild(pixel);
+    }
+
+    document.querySelectorAll('.pixel').forEach(px => px.addEventListener('mouseover', e => {
+        if(!e.target.classList.contains('pixel')) return;
+
+        e.target.style.backgroundColor = '#000';
+    }));
+</script>
+</html>
