@@ -26,6 +26,8 @@
 
         document.documentElement.style.setProperty('--gridSize', size);
 
+        document.querySelectorAll('.pixel').forEach(px => px.remove());
+
         for(let i = 0; i < size**2; i++) {
             const pixel = document.createElement('div');
             pixel.classList.add('pixel');
