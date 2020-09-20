@@ -37,6 +37,7 @@ body {
     background-color: #812323;
     display: grid;
     grid-template-columns: repeat(var(--gridSize), 1fr);
+    grid-template-rows: repeat(var(--gridSize), 1fr);
     width: 800px;
     height: 800px;
     padding: 16px;
