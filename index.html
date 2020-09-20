@@ -10,7 +10,7 @@
         <button class="btn reset">Reset grid</button>
         <button class="btn size">Change grid size</button>
         <div class="color-choice">
-            <input type="radio" name="color-choice" id="bw" value="rgb" checked><label for="bw"> Black & White</label>
+            <input type="radio" name="color-choice" id="bw" value="bw" checked><label for="bw"> Black & White</label>
             <input type="radio" name="color-choice" id="rgb" value="rgb"><label for="rgb">Rainbow</label>
             <input type="radio" name="color-choice" id="alpha" value="alpha"><label for="alpha">Alpha</label>
         </div>
@@ -22,6 +22,32 @@
 </body>
 <script>
     const etchContainer = document.querySelector('div.etch-container');
+    let colorMode = 'bw';
+
+    function changeColorMode(e) {
+        colorMode = this.value;
+    }
+
+    function randomNumber(max) {
+        return Math.ceil(Math.random() * max);
+    }
+
+    function randomColor() {
+        return `rgb(${randomNumber(255)}, ${randomNumber(255)}, ${randomNumber(255)})`;
+    }
+
+    function colorPixel(e) {
+        switch(colorMode) {
+            case 'bw':
+                e.target.style.backgroundColor = '#000';
+                break;
+            case 'rgb':
+                e.target.style.backgroundColor = randomColor();
+                break;
+            default:
+                e.target.style.backgroundColor = '#000';
+        }
+    }
 
     function generateGrid(e, size) {
         while(!size || typeof size !== 'number') {
@@ -36,9 +62,7 @@
             const pixel = document.createElement('div');
             pixel.classList.add('pixel');
 
-            pixel.addEventListener('mouseover', e => {
-                e.target.style.backgroundColor = '#000000';
-            })
+            pixel.addEventListener('mouseover', colorPixel);
     
             etchContainer.appendChild(pixel);
         }
@@ -51,5 +75,6 @@
     document.onload = generateGrid(null, 16);
     document.querySelector('.btn.size').addEventListener('click', generateGrid);
     document.querySelector('.btn.reset').addEventListener('click', resetGrid);
+    document.querySelectorAll('input').forEach(radio => radio.addEventListener('input', changeColorMode));
 </script>
 </html>
