@@ -31,15 +31,19 @@
             pixel.classList.add('pixel');
 
             pixel.addEventListener('mouseover', e => {
-                e.target.style.backgroundColor = '#000000'
+                e.target.style.backgroundColor = '#000000';
             })
     
             etchContainer.appendChild(pixel);
         }
     }
 
+    function resetGrid(e) {
+        document.querySelectorAll('div.pixel').forEach(px => px.style.backgroundColor = '#ffffff');
+    } 
 
     document.onload = generateGrid(null, 16);
-    document.querySelector('.btn.size').addEventListener('click', generateGrid)
+    document.querySelector('.btn.size').addEventListener('click', generateGrid);
+    document.querySelector('.btn.reset').addEventListener('click', resetGrid);
 </script>
 </html>
