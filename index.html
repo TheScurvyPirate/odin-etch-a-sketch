@@ -19,17 +19,24 @@
 <script>
     const etchContainer = document.querySelector('div.etch-container');
 
-    for(let i = 0; i < 16**2; i++) {
-        const pixel = document.createElement('div');
-        pixel.classList.add('pixel');
+    function generateGrid(size) {
+        document.documentElement.style.setProperty('--gridSize', size);
 
-        etchContainer.appendChild(pixel);
+        for(let i = 0; i < size**2; i++) {
+            const pixel = document.createElement('div');
+            pixel.classList.add('pixel');
+    
+            etchContainer.appendChild(pixel);
+        }
+
+        document.querySelectorAll('.pixel').forEach(px => px.addEventListener('mouseover', e => {
+            if(!e.target.classList.contains('pixel')) return;
+    
+            e.target.style.backgroundColor = '#000';
+        }));
     }
 
-    document.querySelectorAll('.pixel').forEach(px => px.addEventListener('mouseover', e => {
-        if(!e.target.classList.contains('pixel')) return;
 
-        e.target.style.backgroundColor = '#000';
-    }));
+    document.onload = generateGrid(16);
 </script>
 </html>
