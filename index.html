@@ -28,6 +28,12 @@
         colorMode = this.value;
     }
 
+    function darkenPixel(e) {
+        const currentColors = e.target.style.backgroundColor.match(/\d+/g) || [255, 255, 255];
+
+        e.target.style.backgroundColor = `rgb(${currentColors[0] - 26}, ${currentColors[1] - 26}, ${currentColors[2] - 26})`;
+    }
+
     function randomNumber(max) {
         return Math.ceil(Math.random() * max);
     }
@@ -39,13 +45,17 @@
     function colorPixel(e) {
         switch(colorMode) {
             case 'bw':
-                e.target.style.backgroundColor = '#000';
+                e.target.style.backgroundColor = 'rgb(0, 0, 0)';
                 break;
             case 'rgb':
                 e.target.style.backgroundColor = randomColor();
                 break;
+            case 'alpha':
+                e.target.style.backgroundColor = darkenPixel(e);
+                break;
             default:
-                e.target.style.backgroundColor = '#000';
+                e.target.style.backgroundColor = 'rgb(0, 0, 0)';
+                break;
         }
     }
 
@@ -69,7 +79,7 @@
     }
 
     function resetGrid(e) {
-        document.querySelectorAll('div.pixel').forEach(px => px.style.backgroundColor = '#ffffff');
+        document.querySelectorAll('div.pixel').forEach(px => px.style.backgroundColor = 'rgb(255, 255, 255)');
     } 
 
     document.onload = generateGrid(null, 16);
