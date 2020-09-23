@@ -7,12 +7,20 @@
 
 <body>
     <div class="etch-options">
-        <button class="btn reset">Reset grid</button>
-        <button class="btn size">Change grid size</button>
+        <p class="border-interrupt grid">Grid Controls</p>
+        <div class="grid-control">
+            <button class="btn reset"><div class="btn internal">Reset grid</div>Reset grid</button>
+            <button class="btn size"><div class="btn internal">Change grid size</div>Change grid size</button>
+        </div>
+        
+        <p class="border-interrupt colors">Color Mode</p>
         <div class="color-choice">
-            <input type="radio" name="color-choice" id="bw" value="bw" checked><label for="bw"> Black & White</label>
-            <input type="radio" name="color-choice" id="rgb" value="rgb"><label for="rgb">Rainbow</label>
-            <input type="radio" name="color-choice" id="alpha" value="alpha"><label for="alpha">Alpha</label>
+            <input type="radio" name="color-choice" id="bw" value="bw" checked>
+            <label class="radio" for="bw">Black & White<div class="internal">Black & White</div></label>
+            <input type="radio" name="color-choice" id="rgb" value="rgb">
+            <label class="radio" for="rgb">Rainbow<div class="internal">Rainbow</div></label>
+            <input type="radio" name="color-choice" id="alpha" value="alpha">
+            <label class="radio" for="alpha">Alpha<div class="internal">Alpha</div></label>
         </div>
     </div>
     
