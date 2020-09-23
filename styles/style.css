@@ -1,5 +1,5 @@
 :root {
-    background-color: #888;
+    background-color: #1f2029;
     --gridSize: 16;
 }
 
@@ -9,28 +9,104 @@ body {
 
 .etch-options {
     width: 256px;
-    height: 256px;
+    height: 512px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     position: absolute;
     top: 50%;
     left: 154px;
-    margin: -128px 0 0 0;
+    margin: -256px 0 0 0;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.border-interrupt {
+    width: max-content;
+    height: 18px;
+    position: relative;
+    top: 37px;
+    left: 20px;
+    padding: 0 16px;
+    background-color: #1f2029;
+    color: white;
+}
+
+.grid-control {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+    border: 2px solid #353746;
+    height: 128px;
+    padding: 4px 16px;
+    border-radius: 4px;
 }
 
 .btn {
-    background-color: #b13b3b;
+    background-color: #353746;
+    width: 100%;
     color: white;
     border: none;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    height: 48px;
-    border-radius: 24px;
+    height: 40px;
+    border-radius: 4px;
+    position: relative;
 }
 
-.btn:hover {
-    box-shadow: 3px 3px 6px #444;
+.internal {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    background: linear-gradient(298deg, #da2c4d, #f8ab37);
+    transition: all 0.7s ease;
+    border-radius: 4px;
+}
+
+.internal:hover {
+    opacity: 1;
+}
+
+.color-choice {
+    height: 192px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    border: 2px solid #353746;
+    border-radius: 4px;
+    padding: 4px 16px;
+}
+
+input {
+    appearance: none;
+    position: fixed;
+}
+
+label {
+    box-sizing: border-box;
+    margin: auto;
+    height: 40px;
+    line-height: 40px;
+    background-color: #353746;
+    width: 100%;
+    text-align: center;
+    border-radius: 4px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    position: relative;
+}
+
+input:checked + label {
+    background: linear-gradient(298deg, #da2c4d, #f8ab37)
 }
 
 .etch-container {
